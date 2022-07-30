@@ -55,7 +55,7 @@ config.replaceRequires = typeof config.replaceRequires === 'undefined' ? "inline
 console.log('* Reading bundle...');
 const bundleContents = fs.readFileSync(bundleLocation);
 
-let ast = acorn.parse(bundleContents, {});
+let ast = acorn.parse(bundleContents, { ecmaVersion: config.ecmaVersion });
 
 // Get the entry point in the bundle.
 if (config.type === 'browserify' && !config.entryPoint) {
